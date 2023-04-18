@@ -1,4 +1,4 @@
-# Phishing URL Detection 
+# Phishing Website Detector 
 
 
 ## Table of Content
