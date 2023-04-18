@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="Home">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This website is develop for identify the safety of url.">
+    <meta name="keywords" content="phishing url,phishing,cyber security,machine learning,classifier,python">
+    <meta name="author" content="Praveen, Sonu & Siddhant">
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        
+    <link href="static/styles.css" rel="stylesheet">
+    <title>Phishing Website Detector</title>
+
+
+
+    <!-- Start of my extra code -->
+
+    <style>
+
+      .navbar {
+        overflow: hidden;
+        top: 0;
+        margin-top: -135px;
+        margin-bottom: 140px;
+        width: 1150px;
+
+      }
+  
+   
+      .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+  
+
+  
+      .navbar a:hover {
+        background-color: #dddddd;
+        color: rgb(0, 0, 0);
+      }
+  
+      @media screen and (max-width: 600px) {
+        .navbar a {
+          float: none;
+          display: block;
+        }
+      }
+
+
+      footer {
+			color: #fff;
+			text-align: center;
+			padding: 20px;
+			width: 100%;
+      margin-top: 100px;
+		}
+
+
+    .contact {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      margin-top: 180px;
+    }
+    
+    input[type=text], textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 16px;
+      resize: vertical;
+    }
+    input[type=submit] {
+      background-color: rgb(94, 82, 73);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+    
+    </style>
+<!-- End of my extra code -->
+    
+</head>
+
+<body>
+    
+  <!-- start of my extra code -->
+
+<div class="navbar">
+    <h2 style="color:rgb(255, 254, 254);padding-right: 250px;">Phishing Website Detector</h2>
+		<a href="#Home">Home</a>
+		<!-- <a href="#news">News</a> -->
+    <a href="#AboutUs">About</a>
+		<a href="#Contact">Contact Us</a>
+		
+	</div>
+
+  <!-- End of my extra code -->
+
+<div class=" container">
+    <div class="row">
+        <div class="form col-md" id="form1">
+            <h3 style="color:rgb(228, 215, 215)">Enter the complete url you want to check</h3>
+            <p style="color:rgb(202, 194, 194);">for ex: https://google.com</p>
+            <br>
+            <form action="/" method ="post">
+                <input type="text" class="form__input" name ='url' id="url" placeholder="Enter URL" required="" />
+                <label for="url" class="form__label">URL</label>
+                <button class="button" role="button" >Check here</button>
+            </form>
+           
+    </div>
+    
+    <div class="col-md" id="form2">
+        
+        <br>
+        <h6 class = "right "><a href= {{ url }} target="_blank">{{ url }}</a></h6>
+           
+        <br>
+        <h3 id="prediction"></h3>
+        <button class="button2" id="button2" role="button" onclick="window.open('{{url}}')" target="_blank" >Still want to Continue</button>
+        <button class="button1" id="button1" role="button"  onclick="window.open('{{url}}')" target="_blank">Continue</button>
+    </div> 
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<h5 id = "AboutUs" style= "color:rgb(238, 231, 231)">What is phishing?</h5><br>
+<p style="color:rgb(202, 194, 194); text-align: justify;">&nbsp &nbsp &nbsp &nbsp Phishing is a type of online scam where a malicious actor, also known as a "phisher,
+  " attempts to trick individuals into sharing their sensitive information, such as login 
+  credentials, credit card numbers, or personal information. Phishing attacks can occur 
+  through various methods, such as emails, text messages, social media messages, or even
+   phone calls.</p>
+   <p style="color:rgb(202, 194, 194); text-align: justify;">&nbsp &nbsp &nbsp &nbsp Phishers typically pose as trustworthy entities, such as banks, government agencies,
+     or popular websites, and create fake messages or websites that look legitimate in 
+     order to deceive their victims. The messages or websites often contain urgent or 
+     threatening language to pressure the victims into taking action without thinking 
+     critically. For example, a phishing email may claim that there is an issue with a 
+     user's bank account and request that they click on a link to resolve the issue, 
+     which would then lead them to a fake website designed to steal their login 
+     credentials.</p><br><br>
+
+     <h5 style= "color:rgb(238, 231, 231)">Features Used for Website Phishing Detection</h5><br>
+     <p style="color:rgb(202, 194, 194); text-align: justify;">&nbsp &nbsp &nbsp &nbsp 
+      There are many algorithms and various types of phishing that look for types of
+      information in educational materials and products. Phishing websites and related pages
+      have several characteristics that distinguish them from malicious URLs. For example;
+      Attackers can register long and confusing names to hide the real name (squatting, 
+      phishing). Sometimes an attacker can use a direct IP address instead of a domain
+      name. Such an event is beyond our scope, but may be used for the same purpose. 
+      In addition to URL-based features, various features used in machine learning algorithms
+      are used in the research process. Features gathered from phishing detection research 
+      using machine learning are grouped as follows:<br><br>
+
+      1- URL-based features<br>
+      2- Domain-based features<br>
+      3- Page-based features<br>
+      4- Content-based features</p><br>
+
+      <h5 style= "color:rgb(238, 231, 231)">How to protect mobiles and laptops from phishing attack?</h5><br>
+     <p style="color:rgb(202, 194, 194); text-align: justify;">&nbsp &nbsp &nbsp &nbsp 
+      Phishing attacks are one of the most common forms of cyber-attacks, and they can be 
+      quite dangerous as they can lead to the theft of sensitive information such as 
+      usernames, passwords, and financial information. Here are some steps you can take 
+      to protect your mobiles and laptops from phishing attacks:<br><br>
+
+      1- <strong>Install Antivirus Software:-</strong> Ensure that your mobile and laptop have antivirus 
+      software installed, and keep it up-to-date to protect against any known threats.<br><br>
+
+      2- <strong>Keep Software Updated:-</strong> Keep your operating system, web browsers, and other 
+      software up-to-date with the latest security patches, as these can help protect 
+      against known vulnerabilities.<br><br>
+
+      3- <strong>Be Wary of Suspicious Emails:-</strong> Be cautious of emails that ask for sensitive 
+      information or that appear to be from a legitimate source, but contain suspicious 
+      links or attachments. Avoid clicking on any links or downloading any attachments
+       from suspicious emails.<br><br>
+
+      4- <strong>Verify Links Before Clicking:- </strong>Always verify the authenticity of links before 
+      clicking on them. Hover over the link to see the URL, and check that it is legitimate
+       and matches the domain name of the sender.<br><br>
+
+      5- <strong>Use Two-Factor Authentication:-</strong> Enable two-factor authentication on all of your 
+      accounts, which adds an extra layer of security to protect against unauthorized 
+      access.<br><br>
+
+      6- <strong>Use Strong Passwords:-</strong> Use strong, unique passwords for each account, and avoid
+       using the same password across multiple accounts.<br><br>
+
+       7- <strong>Use Virtual Private Networks (VPNs):- </strong>Use a VPN when accessing public Wi-Fi 
+       networks to encrypt your internet traffic and protect against eavesdropping.<br><br>
+
+       By following these steps, you can significantly reduce the risk of falling victim 
+       to phishing attacks on your mobiles and laptops.</p>
+</div>
+
+<!-- my extra code -->
+
+
+
+<div  id="Contact" class="contact">
+  <h3 style="color:rgb(255, 255, 255);text-align: center;margin-bottom: 20px;">Contact Us</h3>
+  <form action="#" method="post">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your name.." required>
+
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" placeholder="Your email.." required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Write something.." required></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<!-- End of my extra code -->
+<footer>
+  <p>&copy; Praveen, Sonu & Siddhant</p>
+  <p>BSA College of Engineering and Technology, Mathura</p>
+</footer>
+
+
+
+
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+    
+    <script>
+        
+            let x = '{{xx}}';
+            let num = x*100;
+            if (0<=x && x<0.50){
+                num = 100-num;
+            }
+            let txtx = num.toString();
+            if(x<=1 && x>=0.50){
+                var label = "Website is "+txtx +"% safe to use...";
+                document.getElementById("prediction").innerHTML = label;
+                document.getElementById("button1").style.display="block";
+            }
+            else if (0<=x && x<0.50){
+                var label = "Website is "+txtx +"% unsafe to use..."
+                document.getElementById("prediction").innerHTML = label ;
+                document.getElementById("button2").style.display="block";
+            }
+        
+    </script>
+    
+</body>
+
+</html>
+
